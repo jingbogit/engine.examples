@@ -1,0 +1,37 @@
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  </head>
+  <body>
+    <div id="page-content"></div>
+    <!--<script src="../public/js/jquery-2.1.1.min.js"></script>-->
+    <script src="../public/js/stats.min.js"></script>
+    <script src="../../build/altizure-gl-engine.js" charset="utf-8"></script>
+    <!--<script src="../public/js/rollup/rollup.js" charset="utf-8"></script>-->
+    <script>
+
+      console.log('engine', engine)
+
+      let earth = new engine.EarthViewer('page-content', {
+        camera: {
+          poseTo: {"lng":114,"lat":22,"alt":15,"north":0,"tilt":60,"up":0},
+          flyTo: {"lng":114,"lat":22,"alt":15,"north":0,"tilt":60,"up":0}
+        },
+        api: {
+          apiUrl: 'https://api.altizure.com/graphql',
+          key: 'ToA0NQtp92u58EAqyUyKYg5bVBdPNIuFozRkDuq'
+        }
+      })
+
+
+      if (Stats) {
+        earth._stats = new Stats()
+        earth.threeContainer.appendChild(earth._stats.dom)
+      }
+
+      // setInterval(() => {
+      //   earth.updateScene();
+      // }, 1000/30)
+    </script>
+  </body>
+</html>
